@@ -1,0 +1,8 @@
+Jinja2==3.0.3
+numpy==1.22.1
+opencv-python==4.5.5.62
+rubik-solver==0.2.0
+rubiks-color-resolver==1.0.1
+rubiks-cube-check==1.0.0
+rubiks-cube-image==1.0.0
+rubiks-cube-opencv==1.0.1

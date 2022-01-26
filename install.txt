@@ -1,0 +1,26 @@
+sudo apt install virtualenv
+virtualenv -p python3 .env
+
+. .env/bin/activate
+
+pip install rubik_solver
+pip install git+https://github.com/lidacity/rubiks-color-resolver.git
+pip install git+https://github.com/lidacity/rubiks-cube-opencv.git
+pip install git+https://github.com/lidacity/rubiks-cube-image.git
+pip install git+https://github.com/lidacity/rubiks-cube-check.git
+pip install opencv-python
+pip install ninja2
+pip install pillow
+
+#
+
+deactivate
+
+update
+pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
+pip freeze > requirements.txt 
+
+https://github.com/Wiston999/python-rubik
+https://github.com/dwalton76/rubiks-color-resolver
+https://github.com/adrianliaw/PyCuber
+https://github.com/vipul-sharma20/rubiks-cube-opencv

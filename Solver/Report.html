@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+ table { margin-bottom: 20px; border: 1px solid #dddddd; border-collapse: collapse; }
+ table th { font-weight: bold; padding: 5px; background: #efefef; border: 1px solid #dddddd; }
+ table td { text-align: center; vertical-align: top; border: 1px solid #dddddd; padding: 10px; }
+</style>
+
+<title>Rubiks Cube Solver</title>
+</head>
+<body>
+
+<div>
+ <h1>Default Cube</h1>
+ <img alt='Default Cube' src='data:image/png;base64,{{InitCube}}' />
+</div>
+<hr />
+
+{% for Name, Value in Solve: -%}
+{%- if Value: %}
+<div>
+ <h1>{{Name}}</h1>
+ <table border=1>
+{%- for Command, SubCommands, Cube, Image in Value: %}
+  <tr><td>#{{loop.index}}</td><td><img alt='{{Name}}#{{loop.index}}' src='data:image/png;base64,{{Image}}' />
+{%- if SubCommands|length != 1: -%}
+<br />{{SubCommands|join('&nbsp;&rarr;&nbsp;')}}
+{%- endif -%}
+</td></tr>
+{%- endfor %}
+ </table>
+</div>
+<hr />
+{% endif -%}
+{%- endfor %}
+
+<div>
+ <h1>Cube</h1>
+ <img alt='Final Cube' src='data:image/png;base64,{{FinalCube}}' />
+</div>
+<hr />
+
+<h2>DateTime</h2>
+<p>{{DateTime}}</p>
+<hr />
+
+</body>
+</html>
